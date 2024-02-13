@@ -1,4 +1,4 @@
-<project name="YourProjectName" default="build">
+<project name="main" default="build">
 
     <!-- Define properties -->
     <property name="src.dir" value="src/main/java"/>
