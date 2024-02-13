@@ -11,4 +11,4 @@ COPY main.java /app
 RUN javac main.java
 
 # Specify the command to run the Java application
-CMD ["java", "main"]
+CMD ["java", "main.java"]
