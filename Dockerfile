@@ -5,10 +5,10 @@ FROM openjdk:latest
 WORKDIR /app
 
 # Copy the Java source code into the container
-COPY main.java /app
+COPY RectangleAreaCalculator.java /app
 
 # Compile the Java source code
-RUN javac main.java
+RUN javac RectangleAreaCalculator.java
 
 # Specify the command to run the Java application
-CMD ["java", "main.java"]
+CMD ["java", "RectangleAreaCalculator"]
