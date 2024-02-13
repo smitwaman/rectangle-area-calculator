@@ -1,5 +1,7 @@
-Task: Create a Java program that calculates the area of a rectangle.
-
+Task: 
+Create a Java program that calculates the area of a rectangle.
+Write Dockefile for java program
+Create docker image using docker tool and upload it to dockerhub.
 Requirements:
 1. The program should prompt the user to enter the length and width of the rectangle.
 2. It should then calculate the area using the formula: area = length * width.
@@ -7,4 +9,4 @@ Requirements:
 4. It should have next operation and exit menu after calculating area.
 
 
-Write dockerfile for java rectangle area calculator app
+
