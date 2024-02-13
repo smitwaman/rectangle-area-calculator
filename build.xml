@@ -1,4 +1,4 @@
-<project name="main" default="build">
+<project name="RectangleAreaCalculator" default="build">
 
     <!-- Define properties -->
     <property name="src.dir" value="src/main/java"/>
