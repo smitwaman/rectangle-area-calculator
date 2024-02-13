@@ -1,4 +1,4 @@
-# rectangle-area-calculator
+# rectangle-area-calculator@signimus
 This program will calculate area of rectangle
 For testing this program run following command in docker.
 
