@@ -10,8 +10,8 @@ pipeline {
     environment {
         DOCKER_HUB_REGISTRY = 'docker.io' // Docker Hub registry URL
         DOCKER_HUB_USERNAME = 'smitwaman' // Your Docker Hub username
-        DOCKER_HUB_REPOSITORY = 'webapp' // Your Docker Hub repository name
-        DOCKER_IMAGE_TAG = 'env.BUILD_TAG' // Tag for the Docker image
+        DOCKER_HUB_REPOSITORY = 'javaapp' // Your Docker Hub repository name
+        DOCKER_IMAGE_TAG = "${env.BUILD_TAG}" // Tag for the Docker image
         DOCKER_IMAGE = 'javaapp'
        }
 
