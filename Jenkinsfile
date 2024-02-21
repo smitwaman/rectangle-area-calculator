@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-    stages {
+
         stage('Build and Test') {
             steps {
 
@@ -30,28 +30,28 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-
-        stage('Build Docker Image') {
+        stage('Docker Image') {
             steps {
-                // Build Docker image with Dockerfile
                 script {
-                    docker.build("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}", "-f Dockerfile .")
+                    // Build Docker image
+                    sh "docker build -t ${DOCKER_HUB_USERNAME}/${DOCKER_HUB_REPOSITORY}:${DOCKER_IMAGE_TAG} ."
                 }
             }
         }
 
         stage('Push Docker Image to Docker Hub') {
             steps {
-                // Log in to Docker Hub
                 script {
-                    withCredentials([usernamePassword(credentialsId: DOCKER_HUB_CREDENTIALS, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                        docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
-                            // Push Docker image to Docker Hub
-                            docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").push()
-                        }
+                    // Login to Docker Hub using Personal Access Token
+                    withCredentials([string(credentialsId: 'docker', variable: 'DOCKER_LOGIN_TOKEN')]) {
+                        sh "docker login -u ${env.DOCKER_HUB_USERNAME} -p ${env.DOCKER_LOGIN_TOKEN} ${env.DOCKER_HUB_REGISTRY}"
                     }
+
+                    // Push Docker image to Docker Hub
+                    sh "docker push ${DOCKER_HUB_USERNAME}/${DOCKER_HUB_REPOSITORY}:${DOCKER_IMAGE_TAG}"
                 }
             }
-        }
-    }
+        }   
+        
+}
 }
