@@ -1,6 +1,12 @@
 pipeline {
     agent any
-
+     tools {
+        
+  jdk 'jdk'
+  maven 'maven'
+  dockerTool 'docker'
+  
+    }
     environment {
         DOCKER_HUB_CREDENTIALS = credentials('docker') // Jenkins credentials ID for Docker Hub
         DOCKER_IMAGE_NAME = 'smitwaman/java-app' // Docker Hub repository name
