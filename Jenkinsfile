@@ -25,8 +25,6 @@ pipeline {
     stages {
         stage('Build and Test') {
             steps {
-                // Checkout the code from your repository
-                git 'https://github.com/smitwaman/rectangle-area-calculator.git'
 
                 // Build and test the project using Maven
                 sh 'mvn clean install'
