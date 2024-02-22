@@ -48,7 +48,7 @@ pipeline {
                     }
 
                     // Push Docker image to Docker Hub
-                    sh "docker push ${DOCKER_HUB_USERNAME}/${DOCKER_HUB_REPOSITORY}:${DOCKER_IMAGE_TAG}"
+                    sh "docker push ${DOCKER_HUB_USERNAME}/${DOCKER_HUB_REPOSITORY}:latest"
                 }
             }
         }   
